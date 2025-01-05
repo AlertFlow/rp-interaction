@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"gitlab.justlab.xyz/alertflow-public/runner/pkg/executions"
-	"gitlab.justlab.xyz/alertflow-public/runner/pkg/models"
+	"github.com/AlertFlow/runner/pkg/executions"
+	"github.com/AlertFlow/runner/pkg/models"
 
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
@@ -18,7 +18,7 @@ func (p *InteractionPlugin) Init() models.Plugin {
 	return models.Plugin{
 		Name:    "Interaction",
 		Type:    "action",
-		Version: "1.0.4",
+		Version: "1.0.5",
 		Creator: "JustNZ",
 	}
 }
