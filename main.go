@@ -32,7 +32,7 @@ func (p *Plugin) ExecuteTask(request plugins.ExecuteTaskRequest) (plugins.Respon
 			`Timeout: ` + strconv.Itoa(timeout) + ` seconds`,
 		},
 		Interactive: true,
-		Status:      "running",
+		Status:      "interactionWaiting",
 		StartedAt:   time.Now(),
 	})
 	if err != nil {
