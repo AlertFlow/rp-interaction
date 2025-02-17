@@ -19,7 +19,7 @@ jobs:
           go-version: '1.23'
 
       - name: Build Plugin
-        run: go build -mod=mod -buildmode=plugin -o interaction.so plugin.go
+        run: go build -o interaction
 
       - name: Create Release
         id: create_release
@@ -27,7 +27,7 @@ jobs:
         with:
           name: Release ${{ github.ref_name }}
           tag: ${{ github.ref_name }}
-          artifacts: interaction.so
+          artifacts: interaction
           skipIfReleaseExists: true
           generateReleaseNotes: true
           token: ${{ secrets.ACCESS_TOKEN }}
