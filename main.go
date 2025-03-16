@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/AlertFlow/runner/pkg/executions"
-	"github.com/AlertFlow/runner/pkg/plugins"
+	"github.com/v1Flows/runner/pkg/executions"
+	"github.com/v1Flows/runner/pkg/plugins"
 
 	"github.com/v1Flows/alertFlow/services/backend/pkg/models"
 
