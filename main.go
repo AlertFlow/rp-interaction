@@ -30,9 +30,14 @@ func (p *Plugin) ExecuteTask(request plugins.ExecuteTaskRequest) (plugins.Respon
 		Messages: []models.Message{
 			{
 				Title: "Interaction",
-				Lines: []string{
-					`Waiting for user interaction`,
-					`Timeout: ` + strconv.Itoa(timeout) + ` seconds`,
+				Lines: []models.Line{
+					{
+						Content: "Waiting for user interaction",
+						Color:   "primary",
+					},
+					{
+						Content: "Timeout: " + strconv.Itoa(timeout) + " seconds",
+					},
 				},
 			},
 		},
@@ -73,9 +78,15 @@ func (p *Plugin) ExecuteTask(request plugins.ExecuteTaskRequest) (plugins.Respon
 				Messages: []models.Message{
 					{
 						Title: "Interaction",
-						Lines: []string{
-							"Interaction timed out",
-							"Automatically approved & continuing to the next step",
+						Lines: []models.Line{
+							{
+								Content: "Interaction timed out",
+								Color:   "warning",
+							},
+							{
+								Content: "Automatically approved & continuing to the next step",
+								Color:   "success",
+							},
 						},
 					},
 				},
@@ -105,9 +116,15 @@ func (p *Plugin) ExecuteTask(request plugins.ExecuteTaskRequest) (plugins.Respon
 			Messages: []models.Message{
 				{
 					Title: "Interaction",
-					Lines: []string{
-						"Interaction rejected",
-						"Execution canceled",
+					Lines: []models.Line{
+						{
+							Content: "Interaction rejected",
+							Color:   "danger",
+						},
+						{
+							Content: "Execution canceled",
+							Color:   "danger",
+						},
 					},
 				},
 			},
@@ -134,7 +151,12 @@ func (p *Plugin) ExecuteTask(request plugins.ExecuteTaskRequest) (plugins.Respon
 			Messages: []models.Message{
 				{
 					Title: "Interaction",
-					Lines: []string{"Interaction approved"},
+					Lines: []models.Line{
+						{
+							Content: "Interaction approved",
+							Color:   "success",
+						},
+					},
 				},
 			},
 			Status:              "success",
@@ -168,7 +190,7 @@ func (p *Plugin) Info(request plugins.InfoRequest) (models.Plugin, error) {
 	var plugin = models.Plugin{
 		Name:    "Interaction",
 		Type:    "action",
-		Version: "1.2.1",
+		Version: "1.2.2",
 		Author:  "JustNZ",
 		Action: models.Action{
 			Name:        "Interaction",
